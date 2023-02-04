@@ -25,13 +25,27 @@
     </style>
   </head>
   <body>
-    <%= form_for ["hello", "hi"] do |f| %>
-      <ul id="foo">
-      <li><%= hi :attribute %>
-      <%= hi :attribute, class: 'select' %> </li>
-    <% end %>
-      </ul>
-    
+      <%= javascript_include_tag "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" %>
+
+      <%= form_for @music do |f| %>
+        <ol id="foo">
+  <% for i in 1..5 do %> 
+    <li>
+      
+      <select id="autocomplete_select_<%= i %>">
+        <% @options.each do |option| %>
+          <option value="<%= option["song_name"] %>">
+            <%= option["song_name"] %>
+          </option>
+        <% end %>
+      </select>
+    </li>
+  <% end %>
+</ol>
+
+        <%= f.submit "Submit" %>
+      <% end %>
+      
     
   </body>
 
@@ -44,24 +58,10 @@
   </script>
   <script>
   $(document).ready(function() {
-    $('.select').autocomplete({
-      source: function(request, response) {
-        var select = $('.select');
-        var options = select.children('option').map(function() {
-          return {
-            label: this.text,
-            value: this.value
-          };
-        });
-        response(options.filter(function(option) {
-          return option.label.toLowerCase().indexOf(request.term.toLowerCase()) !== -1;
-        }));
-      },
-      select: function(event, ui) {
-        var select = $('.select');
-        select.val(ui.item.value);
-      }
-      });
-      });
-  </script>
+    $('#autocomplete_select').autocomplete({
+      source: <%= raw @options.to_json %>
+    });
+  });
+</script>
+
 </html>
