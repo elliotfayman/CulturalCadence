@@ -25,13 +25,12 @@
     </style>
   </head>
   <body>
-    
-    <%= form_tag "/submit", method: :post do %>
+    <%= form_for ["hello", "hi"] do |f| %>
       <ul id="foo">
-        <li> <%= select_tag "item[0]", options_for_select(["foo 1", "foo 2", "foo 3", "foo 4", "foo 5"]), id: "item_select", multiple: true %>
-      </ul>
-      <%= submit_tag "Submit" %>
+      <li><%= hi :attribute %>
+      <%= hi :attribute, class: 'select' %> </li>
     <% end %>
+      </ul>
     
     
   </body>
@@ -42,5 +41,27 @@
       animation: 100
     });
 
+  </script>
+  <script>
+  $(document).ready(function() {
+    $('.select').autocomplete({
+      source: function(request, response) {
+        var select = $('.select');
+        var options = select.children('option').map(function() {
+          return {
+            label: this.text,
+            value: this.value
+          };
+        });
+        response(options.filter(function(option) {
+          return option.label.toLowerCase().indexOf(request.term.toLowerCase()) !== -1;
+        }));
+      },
+      select: function(event, ui) {
+        var select = $('.select');
+        select.val(ui.item.value);
+      }
+      });
+      });
   </script>
 </html>
