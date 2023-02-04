@@ -1,2 +1,46 @@
-<h1>TopTen#topten</h1>
-<p>Find me in app/views/top_ten/topten.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sortable: `put: []` demo</title>
+
+    <!-- Sortable.js -->
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+    <style>
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      li {
+        background: #eee;
+        margin: 1px;
+        padding: 5px 10px;
+      }
+      
+      .sortable-ghost {
+        opacity: .6;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <%= form_tag "/submit", method: :post do %>
+      <ul id="foo">
+        <li> <%= select_tag "item[0]", options_for_select(["foo 1", "foo 2", "foo 3", "foo 4", "foo 5"]), id: "item_select", multiple: true %>
+      </ul>
+      <%= submit_tag "Submit" %>
+    <% end %>
+    
+    
+  </body>
+
+  <script>
+    Sortable.create(foo, {
+      group: 'foo',
+      animation: 100
+    });
+
+  </script>
+</html>
