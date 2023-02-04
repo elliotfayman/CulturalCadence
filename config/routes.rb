@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: "application#index"
+  devise_for :users
+  resources :musics
   get 'user/profile'
   get 'suggestions/suggestions'
   get 'top_ten/topten'
