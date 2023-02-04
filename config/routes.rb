@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'user/profile'
   get 'suggestions/suggestions'
   get 'top_ten/topten'
+  get 'top_ten/suggestion'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
