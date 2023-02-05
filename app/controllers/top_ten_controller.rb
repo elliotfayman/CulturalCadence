@@ -1,7 +1,7 @@
 class TopTenController < ApplicationController
   def topten
-    @options = Music.all
-    @music = Music.new
+    @user = current_user
+    @music = Music.all
   end
 
   def suggestion

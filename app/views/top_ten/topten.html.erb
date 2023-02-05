@@ -1,67 +1,46 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sortable: `put: []` demo</title>
 
-    <!-- Sortable.js -->
-    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+<h1>Select Your Top Five!</h1>
+<%= form_for(current_user, url: user_update_path(current_user)) do |f| %> 
+ 
 
-    <style>
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-      
-      li {
-        background: #eee;
-        margin: 1px;
-        padding: 5px 10px;
-      }
-      
-      .sortable-ghost {
-        opacity: .6;
-      }
-    </style>
-  </head>
-  <body>
-      <%= javascript_include_tag "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" %>
+  <div class="field">
+  <%=f.hidden_field :id, value: current_user.id%>
+    <%= f.label :rank1 %><br />
+    <%= f.select :rank1, options_from_collection_for_select(Music.all, :id, :song_name), { include_blank: true } %>
+  </div>
 
-      <%= form_for music_path, method: :post  do |f| %>
-        <ol id="foo">
-  <% for i in 1..5 do %> 
-    <li>
-      
-      <select id="autocomplete_select_<%= i %>">
-        <% @options.each do |option| %>
-          <option value="<%= option["song_name"] %>">
-            <%= option["song_name"] %>
-          </option>
-        <% end %>
-      </select>
-    </li>
-  <% end %>
-</ol>
+  <div class="field">
+    <%= f.label :rank2 %><br />
+    <%= f.select :rank2, options_from_collection_for_select(Music.all, :id, :song_name), { include_blank: true } %>
+  </div>
 
-        <%= f.submit "Submit" %>
-      <% end %>
-      
-    
-  </body>
+  <div class="field">
+    <%= f.label :rank3 %><br />
+    <%= f.select :rank3, options_from_collection_for_select(Music.all, :id, :song_name), { include_blank: true } %>
+  </div>
 
-  <script>
-    Sortable.create(foo, {
-      group: 'foo',
-      animation: 100
-    });
+  
+  <div class="field">
+    <%= f.label :rank4 %><br />
+    <%= f.select :rank4, options_from_collection_for_select(Music.all, :id, :song_name), { include_blank: true } %>
+  </div>
+ 
+ 
+  <div class="field">
+    <%= f.label :rank5 %><br />
+    <%= f.select :rank5, options_from_collection_for_select(Music.all, :id, :song_name), { include_blank: true } %>
+  </div>
 
-  </script>
-  <script>
-  $(document).ready(function() {
-    $('#autocomplete_select').autocomplete({
-      source: <%= raw @options.to_json %>
-    });
-  });
-</script>
 
-</html>
+  <br>
+  
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+
+  
+<% end %>
+
+<br>
+
+<%= link_to "Back", :back %>
