@@ -12,7 +12,7 @@ class UserController < ApplicationController
     user = User.find(devise_current_user.id)
     @parameters = params[:user]
     user = User.where(id: user.id).update_all(rank1: @parameters[:rank1], rank2: @parameters[:rank2], rank3: @parameters[:rank3], rank4: @parameters[:rank4], rank5: @parameters[:rank5])    
-    
+    redirect_to root_path, alert: "Your rankings have been saved!"
   end
   private
   def topfiveparams #This is for permitted params

@@ -1,0 +1,27 @@
+<body>
+    <%= button_to "Click here to choose and rank your top five favorite songs!", top_five_topfive_path(current_user.id)  %>
+
+<table class="table table-hover">
+    <tr>
+        <th>Ranking</th>
+        <th>Song</th>
+        <th>Decade</th>
+    </tr>
+
+<tr>                
+    
+  <% @rank1.each do |rank| %>                    
+  <td><%= rank %><td>
+<% end %>
+
+<% @musicname1.each do |name| %>
+  <td><%= name %></td>
+<% end %>
+
+<% @musicdecade1.each do |decade| %>
+  <td><%= decade %></td>
+<% end %>
+                  
+</tr>
+</table>
+ </body>
