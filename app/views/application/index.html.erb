@@ -19,15 +19,15 @@ body {
 <tr>                
     
   <% @rank1.each do |rank| %>                    
-  <td><%= rank %><td>
+  <td><%= ObjectSpace._id2ref(rank) %><td>
 <% end %>
 
 <% @musicname1.each do |name| %>
-  <td><%= name %></td>
+  <td><%= ObjectSpace._id2ref(name) %></td>
 <% end %>
 
 <% @musicdecade1.each do |decade| %>
-  <td><%= decade %></td>
+  <td><%= ObjectSpace._id2ref(decade) %></td>
 <% end %>
                   
 </tr>
