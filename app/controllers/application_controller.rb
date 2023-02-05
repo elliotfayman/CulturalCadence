@@ -3,6 +3,10 @@ protect_from_forgery with: :null_session
 before_action :configure_permitted_parameters, if: :devise_controller?
 
 def index
+
+   if(current_user.nil?)
+         redirect_to '/users/sign_in'
+  else
   @music = Music.all.to_s
   @user = User.where(id: devise_current_user.id)
   @rank1 = User.select("rank1").where(id: devise_current_user)
@@ -10,6 +14,7 @@ def index
   #@rank3 = @user.rank3
   #@rank4 = @user.rank4
   #@rank5 = @user.rank5
+  end
 
   @musicname1 = Music.select("song_name").where(id: @rank1)
   @musicdecade1 = Music.select("decade").where(id:@rank1)
