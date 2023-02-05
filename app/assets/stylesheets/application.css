@@ -43,11 +43,17 @@ a {
   color: #333;
 }
 
-h1,
+h1 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
 h2 {
   font-weight: 300;
   line-height: 1.2;
   margin: 10px 0;
+  font-size: 40px;
 }
 
 p {
