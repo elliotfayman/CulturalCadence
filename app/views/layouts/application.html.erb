@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CulturalCadence</title>
+    <title>Cultural Cadence</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-  <p class="navbar-text float-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <style> 
+    height: 200px;  
+    background-color: #ffff;
+    background-image: radial-gradient(red, green, yellow); }  
+  </style>
 
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-  </p>
+  <body>
+  <!-- NavBar -->
+  
+  <div class="navbar">
+    <div class="container flex">
+      <h1 class="logo">Cultural Cadence</h1>
+      <nav> 
+        <ul> 
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+           <li> <a> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </a> </li>
+           <li> <a> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> </a> </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+<!--Navbar End -->
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>

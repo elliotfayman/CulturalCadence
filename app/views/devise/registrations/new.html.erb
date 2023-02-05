@@ -1,34 +1,69 @@
-<h2>Sign up</h2>
+<section class="showcase">
+  <div class="container grid">
+    <div class="showcase-text">
+      <h2>Slogan Here</h2>
+      <p> Elliot sucks and is poo poo. He's a stinky big head and 
+      runs like a bumblee can't fly. He is faster than light but smell of chick-fil-a
+      on a Sunday morning. </p>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="showcase-form card">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="form-control">
+          <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="form-control">
+          <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+
+        <div class="form-control">
+          <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "new-password" %>
+        </div>
+
+        <div class="form-control flex">
+            <%= f.select(:region, options_for_select([["Region",""], "AF", "AN", "AS", "EU", "NA", "OC", "SA"])) %>
+            <%= f.submit "Sign up", :class => "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div> 
   </div>
+</section>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+<!-- Stats -->
+<section class="stats">
+  <div class="container">
+    <h3 class="stats-heading text-center my-1">
+      something
+    </h3>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="grid grid-3 text-enter my-4">
+      <div>
+        <i class="fa-solid fa-music"></i>
+        <h3>10,349,405</h3>
+        <p class="text-secondary">Deployments</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-circle-user"></i>
+        <h3>987 TB</h3>
+        <p class="text-secondary">Published</p>
+      </div>
+      <div>
+        <i class="fa-solid fa-share"></i>
+        <h3>2,343,265</h3>
+        <p class="text-secondary">Published</p>
+    </div>
 
-  <div class="field">
-      <%= f.label :region %><br />
-      <%= f.select("region", region: ["AF", "AN", "AS", "EU", "NA", "OC", "SA"]) %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+
