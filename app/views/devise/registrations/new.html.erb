@@ -23,8 +23,8 @@
 
   <div class="field">
       <%= f.label :region %><br />
-      <%= f.text_field :region %>
-    </div>
+      <%= f.select("region", region: ["AF", "AN", "AS", "EU", "NA", "OC", "SA"]) %>
+  </div>
   
   <div class="actions">
     <%= f.submit "Sign up" %>
