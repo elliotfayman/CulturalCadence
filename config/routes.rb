@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'suggestions/suggestions'
   get 'top_ten/topten'
   get 'top_ten/suggestion'
+  post 'music', to: 'music#create'
+  resources :musics
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

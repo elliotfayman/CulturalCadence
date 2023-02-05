@@ -27,7 +27,7 @@
   <body>
       <%= javascript_include_tag "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" %>
 
-      <%= form_for @music do |f| %>
+      <%= form_for music_path, method: :post  do |f| %>
         <ol id="foo">
   <% for i in 1..5 do %> 
     <li>
