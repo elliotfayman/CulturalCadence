@@ -1,8 +1,8 @@
 require "test_helper"
 
-class TopTenControllerTest < ActionDispatch::IntegrationTest
-  test "should get topten" do
-    get top_ten_topten_url
+class TopFiveControllerTest < ActionDispatch::IntegrationTest
+  test "should get topfive" do
+    get top_five_topfive_url
     assert_response :success
   end
 end

@@ -1,2 +1,2 @@
-module TopTenHelper
+module TopFiveHelper
 end

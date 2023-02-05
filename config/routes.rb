@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :musics
   get 'user/profile'
   get 'suggestions/suggestions'
-  get 'top_ten/topten'
-  get 'top_ten/suggestion'
+  get 'top_five/topfive'
+  get 'top_five/suggestion'
   post 'music', to: 'music#create'
-  post 'top_ten/topten'
+  post 'top_five/topfive'
   post 'user/id'
   patch "user/update"
   get '/user/show'

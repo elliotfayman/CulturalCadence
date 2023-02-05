@@ -1,5 +1,5 @@
-class TopTenController < ApplicationController
-  def topten
+class TopFiveController < ApplicationController
+  def topfive
     @user = current_user
     @music = Music.all
   end
