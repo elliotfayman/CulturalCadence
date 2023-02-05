@@ -1,4 +1,12 @@
 <body>
+
+<style>    
+body {    
+  height: 1000px;  
+  background-color: #cccccc;  
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5),rgba(255, 255, 0, 0.5)), url("images/Cultural_Cadence.png");  
+}  
+</style>   
     <%= button_to "Click here to choose and rank your top five favorite songs!", top_five_topfive_path(current_user.id)  %>
 
 <table class="table table-hover">
